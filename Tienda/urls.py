@@ -20,5 +20,11 @@ from catalogo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home")
+    path('', views.home, name="home"),
+    path('signup/', views.signup, name="signup"),
+    path('signin/', views.singin, name="signin"),
+    path('logout/', views.singout, name="logout"),
+    path('catalogo/', views.catalogo, name="catalogo"),
+    path('carrito/', views.carrito, name="carrito"),
+    path('pedidos/', views.pedidos, name="pedidos"),
 ]
