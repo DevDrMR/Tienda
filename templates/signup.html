@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block titulo %}
+Crear usuario
+{% endblock %}
+
+{% block cabecera %}
+<h1 id="titulo">Crea tu cuenta</h1>
+{% endblock %}
+
 {% block content %}
 <h1>Crear usuario</h1>
 <form action="{% url 'signup' %}" method="POST">
