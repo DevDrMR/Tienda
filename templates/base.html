@@ -22,22 +22,34 @@
                 <li>
                     <a href="{% url 'home' %}">HOME</a>
                 </li>
+                <li>
+                    <a href="{% url 'catalogo' %}">Catalogo</a>
+                </li>
                 {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url 'listadoArticulo' %}">Articulos</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listadoProveedor' %}">Proveedores</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'carrito' %}">Carrito</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'pedidos' %}">Pedidos</a>
+                        </li>
+                    {% endif %}
                 <li>
-                    <a href="{% url 'carrito' %}">Tasks completed</a>
-                </li>
-                <li>
-                    <a href="{% url 'pedidos' %}">Create task</a>
-                </li>
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'cerrarSesion' %}">Salir</a>
                 </li>
                 {% else %}
                 <li>
-                    <a href="/signup">Signup</a>
+                    <a href="{% url 'crearUsuario' %}">Crear Cuenta</a>
                 </li>
                 <li>
-                    <a href="/signin">Signin</a>
+                    <a href="{% url 'iniciarSesion' %}">Entrar</a>
                 </li>
                 {% endif %}
             </ul>

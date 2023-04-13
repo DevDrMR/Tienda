@@ -10,7 +10,7 @@ Crear usuario
 
 {% block content %}
 <h1>Crear usuario</h1>
-<form action="{% url 'signup' %}" method="POST">
+<form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">

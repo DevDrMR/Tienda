@@ -17,14 +17,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from catalogo import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('signup/', views.signup, name="signup"),
-    path('signin/', views.singin, name="signin"),
-    path('logout/', views.singout, name="logout"),
+    path('usuario/crear', views.crear_usuario, name="crearUsuario"),
+    path('usuario/entrar', views.iniciar_sesion, name="iniciarSesion"),
+    path('usuario/salir', views.cerrar_sesion, name="cerrarSesion"),
     path('catalogo/', views.catalogo, name="catalogo"),
     path('carrito/', views.carrito, name="carrito"),
     path('pedidos/', views.pedidos, name="pedidos"),
+    path('articulo/crear/', views.crear_articulo, name="articulo"),
+    path('articulo/editar/<int:id>', views.crear_articulo, name="editarArticulo"),
+    path('articulo/eliminar/<int:id>', views.eliminar_articulo, name="eliminarArticulo"),
+    path('articulo/listado/', views.listado_articulo, name="listadoArticulo"),
+    path('proveedor/crear/', views.agrega_proveedor, name="proveedor"),
+    path('proveedor/editar/<int:id>', views.agrega_proveedor, name="editarProveedor"),
+    path('proveedor/listado/', views.mostrar_listado_proveedor, name="listadoProveedor"),
+    path('proveedor/eliminar/<int:id>', views.eliminar_proveedor, name="eliminarProveedor"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

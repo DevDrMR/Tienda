@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Catalogo
+{% endblock %}
+
+{% block cabecera %}
+<h1 id="titulo">Articulo</h1>
+{% endblock %}
+
+{% block content %}
+    <p></p>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success">
+            <span class="fa fa-floppy-disk"></span> Guardar
+        </button>
+    </form>
+{% endblock %}

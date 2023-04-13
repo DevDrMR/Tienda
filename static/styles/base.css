@@ -1,4 +1,6 @@
-/* Estilos basicos para la plantilla */
+/* ++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos basicos para la plantilla
+++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 html{
     font-family: 'Montserrat', sans-serif;
@@ -7,8 +9,15 @@ html{
 body{
     margin: 0;
     background-color: #efefef;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para las cabeceras
+ ++++++++++++++++++++++++++++++++++++++++++++++++ */
 header{
     background-color: #364552;
     color: white;
@@ -20,6 +29,10 @@ header h1{
     text-align: center;
 }
 
+
+/* +++++++++++++++++++++++++++++++++++++++
+    Estilos del Navbar
++++++++++++++++++++++++++++++++++++++++++ */
 nav{
     background-color: #465562;
     padding: 0.5rem 0.2rem;
@@ -52,6 +65,11 @@ nav a{
     text-decoration: none;
 }
 
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para los productos de la lista
+ +++++++++++++++++++++++++++++++++++++++++++++++ */
+
 .container{
     width: 800px;
     margin: 0 auto;
@@ -73,6 +91,20 @@ section article h2, section article p{
 section article:hover{
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
 }
+
+div.img img {
+    width: 100%;
+}
+
+div.img {
+    width: 23%;
+    margin: 1rem;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para el footer
++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 footer{
     background-color: #222;
@@ -98,7 +130,9 @@ footer a:hover{
     color: cornflowerblue;
 }
 
-/* Estilos para el inicio de sesión */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para el inicio de sesión
+++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .error{
     background-color: orangered;

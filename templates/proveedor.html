@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %}Formulario Proveedor{% endblock %}
+{% block cabecera %}
+<h1 id="titulo">Proveedor</h1>
+{% endblock %}
+{% block content %}
+<a href="{% url 'listadoProveedor' %}">Proveedores</a>
+<p></p>
+<form action="" method="POST" enctype="application/x-www-form-urlencoded" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn">
+        <span class="fa fa-floppy-disk"></span> Guardar
+    </button>
+</form>
+{% endblock %}
