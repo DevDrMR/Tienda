@@ -9,14 +9,16 @@ Iniciar sesión
 {% endblock %}
 
 {% block content %}
-<div class="error">
-    {{error}}
-</div>
+{% if error%}
+    <div class="error">
+        <h3>{{ error }}</h3>
+    </div>
+{% endif %}
 <section class="container login">
-    <form class="form__login" action="" method="POST">
+    <form class="form_login" action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button class="btn" type="submit">
+        <button class="btn_iniciar_sesion" type="submit">
             Iniciar sesión
         </button>
     </form>

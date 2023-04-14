@@ -9,12 +9,13 @@ Crear usuario
 {% endblock %}
 
 {% block content %}
-<h1>Crear usuario</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">
-        Crear
-    </button>
-</form>
+    <section class="cont_form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn_guardar">
+                Crear cuenta
+            </button>
+        </form>
+    </section>
 {% endblock %}

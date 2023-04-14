@@ -23,6 +23,19 @@ a {
     text-decoration: none;
 }
 
+.btn_iniciar_sesion{
+    transition: background-color 0.4s ease;
+    background-color:   #bfc9ca;
+    color: black;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn_iniciar_sesion:hover{
+    background-color: #f9e79f;
+}
+
 .btn_guardar{
     transition: background-color 0.4s ease;
     background-color:   #bfc9ca;
@@ -241,17 +254,41 @@ section.lista{
     margin: 2rem auto;
     background-color: #fff;
     border-radius: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+section.cont_form label{
+    font-weight: bold;
 }
 
 section.cont_form p{
     margin-left : 1rem;
     margin-right: 1rem;
-    padding: 0.5rem;
+    padding-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-bottom: 0;
 }
 
 section.cont_form button{
     margin: 1rem;
     padding: 0.5rem;
+}
+
+section.cont_form span{
+    display: block;
+    margin-left : 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+}
+
+section.cont_form ul{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left : 2rem;
+    margin-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -296,15 +333,21 @@ footer a:hover{
 .login{
     background-color: #fff;
     width: 400px;
-    height: 300px;
+    height: 200px;
     margin: 2rem auto;
     border-radius: .5rem;
     padding: 0.25rem 0;
+    display: flex;
+    align-items: center;
 }
 
-.form__login{
+.form_login{
     margin: 1rem;
     align-items: center;
+}
+
+.form_login label{
+    font-weight: bold;
 }
 
 .btn{

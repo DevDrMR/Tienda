@@ -25,6 +25,7 @@ def crear_articulo(request, id=None):
     from catalogo.forms import Articulo
 
     obj = Articulo.objects.filter(pk=id).first()
+    path_img = guarda_path_img(obj)
     form = ArticuloForm(request.POST or None, request.FILES or None, instance=obj)
 
     if request.method == 'GET':
@@ -33,6 +34,8 @@ def crear_articulo(request, id=None):
     else:
         if form.is_valid():
             try:
+                if len(request.FILES) and not path_img is None:
+                    elimina_imagen(path_img)
                 form.save()
                 return redirect('listadoArticulo')
             except ValueError:
@@ -41,6 +44,16 @@ def crear_articulo(request, id=None):
                     'error': 'Error en los datos'
                 })
 
+def guarda_path_img(articulo):
+    if articulo is None:
+        return None
+    else:
+        return articulo.imagen.path
+     
+def elimina_imagen(path):
+    import os
+    if os.path.isfile(path):
+            os.remove(path)
 
 # Muestra los productos sin importar si se inició sessión o no
 def catalogo(request, modo=None):
@@ -66,9 +79,13 @@ def listado_articulo(request, modo=None):
 @staff_member_required
 def eliminar_articulo(request, id):
     from catalogo.models import Articulo
-    obj = Articulo.objects.filter(pk=id).delete()
-    
-    return redirect('listadoArticulo')
+    try:
+        articulo = Articulo.objects.get(pk=id)
+        articulo.delete()
+        return redirect('listadoArticulo')
+    except:
+        print("Error al eliminar")
+        return redirect('listadoArticulo')
 
 
 #####################################################
@@ -82,7 +99,6 @@ def agrega_proveedor(request, id=None):
 
     obj = Proveedor.objects.filter(pk=id).first()
     form = ProveedorForm(request.POST or None, instance=obj)
-    print(form)
     if form.is_valid():
         form.save()
         return redirect('listadoProveedor')
@@ -155,12 +171,16 @@ def iniciar_sesion(request):
             login(request, user)
             return redirect('home')
 
+
 # Cierra la sesión en las cuentas
 def cerrar_sesion(request):
     logout(request)
     return redirect('home')
 
-# Views de Compra
+
+##########################################################
+# Views de Compra                                        #
+##########################################################
 
 @login_required
 def carrito(request):

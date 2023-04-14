@@ -1,4 +1,7 @@
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 from django.db import models
+import os
 
 # Create your models here.
 
@@ -25,3 +28,14 @@ class Articulo(models.Model):
 
     def __str__(self):
         return self.nombre
+
+###################################################################################
+# Para manejar la eliminación de las imagenes cuando se elimine un articulo de la #
+# base de datos se recurre a signals, lo que permite que se eliminen las imágenes # 
+# ya sea por el metodo de la clase o o de un queryset                             #
+###################################################################################
+@receiver(pre_delete, sender=Articulo)
+def articulo_delete_handler(sender, instance, **kwargs):
+    if os.path.isfile(instance.imagen.path):
+            os.remove(instance.imagen.path)
+    
