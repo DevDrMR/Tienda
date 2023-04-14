@@ -15,6 +15,54 @@ body{
 }
 
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para botones
++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+a {
+    text-decoration: none;
+}
+
+.btn_guardar{
+    transition: background-color 0.4s ease;
+    background-color:   #bfc9ca;
+    color: black;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn_guardar:hover{
+    background-color: #10b668;
+}
+
+.btn_editar{
+    transition: background-color 0.4s ease;
+    background-color:   #bfc9ca;
+    color: black;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn_editar:hover{
+    background-color: #18a2d8;
+}
+
+.btn_eliminar{
+    transition: background-color 0.4s ease;
+    background-color:   #bfc9ca;
+    color: black;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn_eliminar:hover{
+    background-color: #d82a13;
+}
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++
     Estilos para las cabeceras
  ++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -75,6 +123,15 @@ nav a{
     margin: 0 auto;
 }
 
+aside{
+    width: 20%;
+    display: inline-block;
+    background-color: #fff;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    padding: 0.25rem 0;
+}
+
 section article{
     transition: box-shadow 0.3 ease;
     background-color: #fff;
@@ -99,8 +156,103 @@ div.img img {
 div.img {
     width: 23%;
     margin: 1rem;
+    display: inline-block;
 }
 
+div.txt_descripcion{
+    width: 70%;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+div.txt_precio{
+    width: 35%;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+div.txt_disponible{
+    width: 35%;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+div.btn_carrito a{
+    width: 100%;
+    background-color: #14973b;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    margin: 0.1rem;
+    padding: 0.5rem;
+}
+
+div.btn_carrito{
+    width: 20%;
+    display: inline-block;
+}
+
+section.art_info{
+    width: 70%;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para las tablas de listado
++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.btn_tabla{
+    margin: 1rem;
+    display: inline-block;
+}
+
+table.tabla{
+    width: 100%;
+    background-color: #fff;
+    border-radius: .5rem;
+}
+
+table.tabla th{
+    border-bottom: 0.1rem solid #222;
+    padding: 0.2rem;
+    text-align: center;
+}
+
+
+table.tabla td{
+    padding: 0.5rem;
+    text-align: center;
+}
+
+section.lista{
+    width: 95%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Estilos para el formulario
++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.cont_form{
+    width: 50%;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: .5rem;
+}
+
+section.cont_form p{
+    margin-left : 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
+}
+
+section.cont_form button{
+    margin: 1rem;
+    padding: 0.5rem;
+}
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++
     Estilos para el footer

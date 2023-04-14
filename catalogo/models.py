@@ -16,7 +16,7 @@ class Proveedor(models.Model):
 
 # Modelo de los articulos
 class Articulo(models.Model):
-    nombre = models.CharField(max_length=45, help_text="Aquí usted va a escribir el nombre del proyecto")
+    nombre = models.CharField(max_length=45)
     descripcion = models.TextField()
     imagen  = models.ImageField(upload_to="productos", null=True, blank=True)
     precio_unitario = models.FloatField(default=0)

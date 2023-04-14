@@ -9,12 +9,13 @@ Catalogo
 {% endblock %}
 
 {% block content %}
-    <p></p>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-success">
-            <span class="fa fa-floppy-disk"></span> Guardar
-        </button>
-    </form>
+    <section class="cont_form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn_guardar">
+                <span class="fa fa-floppy-disk"></span> Guardar
+            </button>
+        </form>
+    </section>
 {% endblock %}

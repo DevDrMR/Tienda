@@ -9,6 +9,11 @@ Catalogo
 {% endblock %}
 
 {% block content %}
+    <!-- <aside>
+        <h2>Categorias</h2>
+        <p>Oficina</p>
+        <p>Campo</p>
+    </aside> -->
     {% for item in data %}
         <section class="container">
             <article>
@@ -16,21 +21,23 @@ Catalogo
                 <div class="img">
                     <img src="{{ item.imagen.url }}">
                 </div>
-                <div>
-                    <h4>Descripción</h4>
-                    <p>{{ item.descripcion }}</p>
-                </div>
-                <div>
-                    <h4>Precio</h4>
-                    <p>$ {{ item.precio_unitario|floatformat:2 }}</p>
-                </div>
-                <div>
-                    <h4>Disponible</h4>
-                    <p> {{ item.activo|yesno:"Si, No" }} </p>
-                </div>
-                <div>
-                    <a href="">Agregar al carrito</a>
-                </div>
+                <section class="art_info">
+                    <div class="txt_descripcion">
+                        <h4>Descripción</h4>
+                        <p>{{ item.descripcion }}</p>
+                    </div>
+                    <div class="txt_precio">
+                        <h4>Precio</h4>
+                        <p>$ {{ item.precio_unitario|floatformat:2 }}</p>
+                    </div>
+                    <div class="txt_disponible">
+                        <h4>Disponible</h4>
+                        <p> {{ item.activo|yesno:"Si, No" }} </p>
+                    </div>
+                    <div class="btn_carrito">
+                        <a href="#"><span class="fa fa-cart-shopping"></span> Agregar</a>
+                    </div>
+                </section>
             </article>
         </section>
     {% endfor %}

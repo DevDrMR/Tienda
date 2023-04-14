@@ -4,41 +4,46 @@
 <h1 id="titulo">Articulos</h1>
 {% endblock %}
 {% block content %}
-    <a href="{% url 'articulo' %}" class="">
-        <span class="fa fa-bars"></span>
-        Nuevo
-    </a>
-    <p></p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Presio Unitario</th>
-                <th>Activo</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in data %}
+    <section class="lista">
+        <a href="{% url 'articulo' %}" class="btn_guardar btn_tabla">
+            <span class="fa fa-bars"></span>
+            Nuevo
+        </a>
+        <table class="tabla">
+            <thead>
                 <tr>
-                    <td>{{item.id}}</td>
-                    <td>{{item.nombre}}</td>
-                    <td>{{item.descripcion}}</td>
-                    <td>{{item.precio_unitario}}</td>
-                    <td>{{item.activo}}</td>
-                    <td> <a href="{% url 'editarArticulo' item.id %}" class="btn">
-                        <span class="fa fa-pen"></span> Editar
-                    </a>
-                    </td>
-                    <td> <a href="{% url 'eliminarArticulo' item.id %}" class="btn">
-                        <span class="fa fa-trash"></span> Eliminar</a> 
-                    </td>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Proveedor</th>
+                    <th>Presio Unitario</th>
+                    <th>Activo</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p></p>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.nombre }}</td>
+                        <td>{{ item.descripcion }}</td>
+                        <td>{{ item.proveedor }}</td>
+                        <td>$ {{ item.precio_unitario }}</td>
+                        <td>{{ item.activo|yesno:"Si, No" }}</td>
+                        <td> 
+                            <a href="{% url 'editarArticulo' item.id %}" class="btn_editar">
+                                <span class="fa fa-pen"></span> Editar
+                            </a>
+                        </td>
+                        <td> 
+                            <a href="{% url 'eliminarArticulo' item.id %}" class="btn_eliminar">
+                                <span class="fa fa-trash"></span> Eliminar
+                            </a> 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}

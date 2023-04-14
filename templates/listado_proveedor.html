@@ -4,43 +4,43 @@
 <h1 id="titulo">Proveedores</h1>
 {% endblock %}
 {% block content %}
-<a href="{% url 'proveedor' %}" class="">
-    <span class="fa fa-bars"></span>
-    Nuevo Proveedor
-</a>
-<p></p>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>RFC</th>
-            <th>Razón Social</th>
-            <th>Email</th>
-            <th>Fecha de Alta</th>
-            <th>Activo</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in data %}
-            <tr>
-                <td>{{item.id}}</td>
-                <td>{{item.rfc}}</td>
-                <td>{{item.razon_social}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.fecha_alta}}</td>
-                <td>{{item.activo}}</td>
-                <td> <a href="{% url 'editarProveedor' item.id %}" class="btn">
-                    <span class="fa fa-pen"></span> Editar
-                </a>
-                </td>
-                <td> <a href="{% url 'eliminarProveedor' item.id %}" class="btn">
-                    <span class="fa fa-trash"></span> Eliminar</a> 
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<p></p>
+    <section class="lista">
+        <a href="{% url 'proveedor' %}" class="btn_guardar btn_tabla">
+            <span class="fa fa-bars"></span>
+            Nuevo Proveedor
+        </a>
+        <table  class="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>RFC</th>
+                    <th>Razón Social</th>
+                    <th>Email</th>
+                    <th>Fecha de Alta</th>
+                    <th>Activo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.rfc }}</td>
+                        <td>{{ item.razon_social }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.fecha_alta|date:'l, F j, Y' }}</td>
+                        <td>{{ item.activo|yesno:"Si, No" }}</td>
+                        <td> <a href="{% url 'editarProveedor' item.id %}" class="btn_editar">
+                            <span class="fa fa-pen"></span> Editar
+                        </a>
+                        </td>
+                        <td> <a href="{% url 'eliminarProveedor' item.id %}" class="btn_eliminar">
+                            <span class="fa fa-trash"></span> Eliminar</a> 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
